@@ -46,7 +46,7 @@ class Tactician extends Component
             return \Yii::createObject($config);
         }, $this->middlewares ?: []);
 
-        $commandBus = new CommandBus(array_merge([$commandHandlerMiddleware], $middlewares));
+        $commandBus = new CommandBus(array_merge($middlewares, [$commandHandlerMiddleware]));
 
         return $commandBus;
     }
